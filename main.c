@@ -3,7 +3,7 @@
 #include <string.h>
 #include <time.h>
 
-#define MAX_PLAYERS 4
+#define MAX_PLAYERS 6
 #define MAX_NAME    24
 #define MAX_HISTORY 200
 
@@ -242,4 +242,5 @@ int main(void) {
 	puts("\nThanks for playing!");
 	return 0;
 }
+
 
