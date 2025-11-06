@@ -22,7 +22,6 @@ typedef struct {
 	int cur;
 } History;
 
-/* ------------------ Utility Functions ------------------ */
 static void copy_state(State *dst, const State *src) {
 	*dst = *src;
 }
@@ -96,21 +95,20 @@ static void print_help(void) {
 	puts("\nMagic: The Gathering Life Tracker Commands:");
 	puts("--------------------------------------------------");
 	puts("  new <players 2-6> [c]        Start new game; add 'c' for Commander (40 life)");
-	puts("  +<p> <n> / -<p> <n>          Add/subtract life for player p  (e.g. +1 3)");
+	puts("  +<p> <n> / -<p> <n>          Add/subtract life for player p");
 	puts("  set <p> <n>                  Set life of player p");
 	puts("  poison <p> <+/-n>            Add/remove poison counters");
 	puts("  cmd <target> <source> <+n>   Commander dmg to <target> from <source>");
 	puts("  next                         Pass turn to next player");
 	puts("  show                         Display life totals");
-	puts("  roll [dN]                    Roll a die (default d20, e.g. roll d6)");
+	puts("  roll [dN]                    Roll a dice (default d20, e.g. roll d6)");
 	puts("  coin                         Flip a coin");
 	puts("  undo / redo                  Undo or redo last action");
-	puts("  help                         Show this help text");
+	puts("  help                         Show help text");
 	puts("  quit                         Exit program");
 	puts("--------------------------------------------------");
 }
 
-/* ------------------ Random Helpers ------------------ */
 static int rintn(int n) {
 	return (rand() % n) + 1;
 }
@@ -130,7 +128,7 @@ int main(void) {
 	puts("==================================================");
 	puts("Magic: The Gathering Life / Poison Tracker");
 	puts("==================================================");
-	print_help();  // show the command list immediately
+	print_help();  
 	show(cur(&H));
 
 	char line[256];
@@ -229,7 +227,7 @@ int main(void) {
 			}
 		}
 		else {
-			puts("Unknown command. Type 'help' for a list of valid inputs.");
+			puts("Unknown command. Type 'help' to see the list of commands.");
 			continue;
 		}
 
@@ -242,5 +240,6 @@ int main(void) {
 	puts("\nThanks for playing!");
 	return 0;
 }
+
 
 
